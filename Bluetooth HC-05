@@ -1,0 +1,32 @@
+char BacaSerial;
+void setup() {
+ Serial.begin(9600);
+ pinMode(13,OUTPUT);
+
+}
+
+void loop() {
+while(Serial.available()>0)
+  {
+  BacaSerial= Serial.read();
+  Serial.println(BacaSerial);
+  if (BacaSerial=='Nyala')
+    {
+    digitalWrite(13,HIGH);
+    }
+  else if (BacaSerial=='Mati')
+    {
+    digitalWrite(13,LOW);
+    } 
+  }
+}
+
+/* 
+BluetoothHC-05
+RX -> TX
+TX -> RX
+VCC -> 5V
+GND -> GND
+Android App : http://ai2.appinventor.mit.edu/#5221677039222784
+
+*/
