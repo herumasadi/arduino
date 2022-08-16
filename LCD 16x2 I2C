@@ -38,7 +38,8 @@ void loop()
   lcd.print("Sedang Belajar");
   lcd.setCursor(1,1);
   lcd.print("LCD 16x2");
-  
-
 }
- 
+//VCC -> 5V
+//GND -> GND
+//SDA -> A4
+//SCL -> A5 
