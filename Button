@@ -1,0 +1,28 @@
+const int BacaPin = 12; 
+int StatusTombol = 0;
+const int Lampu = 13;
+//Penulisan deklarasi
+//Tipe data<spasi>NamaVariabel=nilai variable;
+void setup() //dijalankan satukali (ketika menyala)
+{
+pinMode(BacaPin, INPUT); 
+pinMode(Lampu, OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() 
+{
+  StatusTombol = digitalRead(BacaPin);
+  Serial.println(StatusTombol);
+  if (StatusTombol == 1)
+  {
+    digitalWrite(Lampu, HIGH);
+    Serial.println("Lampu menyala");
+  }
+  else
+  {
+    digitalWrite(Lampu, LOW);
+    Serial.println("Lampu Mati");
+  }
+  delay(50);
+}
