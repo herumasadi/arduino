@@ -1,0 +1,24 @@
+/*
+* PIR sensor tester
+*/
+int ledPin = 13; // pilih pin LED
+int inputPin = 2; // pilih pin input untuk PIR sensor
+int pirState = LOW; // awal mula di set tidak ada pergerakan
+int val = 0; // variable untuk membaca status pin
+void setup() {
+ pinMode(ledPin, OUTPUT); // set LED sebagai output
+ pinMode(inputPin, INPUT); // set sensor sebagai input
+ Serial.begin(9600);
+}
+void loop(){
+ //baca gerakan
+ val = digitalRead(inputPin); 
+ 
+ //jika terdeteksi gerakan
+ if (val == HIGH) {  digitalWrite(ledPin, HIGH); 
+ if (pirState == LOW) { Serial.println("Motion detected!"); pirState = HIGH;} }
+
+ //jik tidak ada gerakan
+ else { digitalWrite(ledPin, LOW);
+ if (pirState == HIGH) { Serial.println("Motion ended!"); pirState = LOW;} }
+}
